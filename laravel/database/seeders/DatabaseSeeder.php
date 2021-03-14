@@ -13,6 +13,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        //@todo Сиды на юзеров добавить
+        $this->call(AuthorSeeder::class);
+        $this->call(BookSeeder::class);
     }
 }
