@@ -16,5 +16,6 @@ class DatabaseSeeder extends Seeder
         //@todo Сиды на юзеров добавить
         $this->call(AuthorSeeder::class);
         $this->call(BookSeeder::class);
+        $this->call(UserSeeder::class);
     }
 }
