@@ -1,14 +1,15 @@
 <?php
 
 
-namespace Tests\Feature\Htpp\Controllers\Api\v1\Author;
+namespace Tests\Feature\Htpp\Controllers\Api\v1\Book;
 
 use App\Models\Author;
+use App\Models\Book;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\Generators\UsersGenerator;
 use Tests\TestCase;
 
-class AuthorControllerStoreTest extends TestCase
+class BookControllerStoreTest extends TestCase
 {
     use RefreshDatabase;
 
@@ -35,8 +36,6 @@ class AuthorControllerStoreTest extends TestCase
             ->actingAs(UsersGenerator::generateUser())
             ->postJson($this->getRoute(),$data);
         $response->assertStatus(422);
-
-
     }
 
 
@@ -46,16 +45,22 @@ class AuthorControllerStoreTest extends TestCase
      * */
     public function testRightDataPassed()
     {
-        $prevCount = count(Author::all());
+        $prevCount = count(Book::all());
+
+        Author::factory(2)->create();
+
         $data = [
-            'name' => 'Johnny',
+            'title' => 'Lord of wings',
+            'authors_id' => [
+                1,2
+            ]
         ];
         $response = $this
             ->actingAs(UsersGenerator::generateUser())
             ->postJson($this->getRoute(),$data);
 
         $response->assertStatus(201);
-        $currentCount = count(Author::all());
+        $currentCount = count(Book::all());
 
         self::assertEquals($prevCount+1, $currentCount);
     }
@@ -63,6 +68,6 @@ class AuthorControllerStoreTest extends TestCase
 
     protected function getRoute():string
     {
-        return route('api.authors.store',['locale' => 'en']);
+        return route('api.books.store',['locale' => 'en']);
     }
 }

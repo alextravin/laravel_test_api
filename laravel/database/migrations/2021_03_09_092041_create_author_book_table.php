@@ -16,7 +16,7 @@ class CreateAuthorBookTable extends Migration
         Schema::create('author_book', function (Blueprint $table) {
             $table->id();
             $table
-                ->foreignId('authors_id')
+                ->foreignId('author_id')
                 ->constrained('authors')
                 ->onDelete('restrict');
             $table

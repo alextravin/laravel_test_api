@@ -12,7 +12,6 @@ class ApiAuthorStoreRequest extends ApiIndexRequest
     {
         return [
             'name' => ['required','string'],
-            'authors_id' => ['array']
         ];
     }
 }

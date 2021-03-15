@@ -28,7 +28,7 @@ class EloquentAuthorRepository implements AuthorRepositoryInterface
 
     public function findById(int $id): ?Author
     {
-        return Author::findOrFail($id);
+        return Author::whereId($id)->first();
     }
 
     public function createFromDTO(DTOInterface $dto): Author
