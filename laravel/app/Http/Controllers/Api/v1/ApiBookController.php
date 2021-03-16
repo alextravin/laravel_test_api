@@ -70,10 +70,4 @@ class ApiBookController extends Controller
         BookFullResource::withoutWrapping();
         return new BookFullResource($book);
     }
-
-
-    public function destroy(Book $book)
-    {
-        //@todo убрать отсюда и из роутов
-    }
 }

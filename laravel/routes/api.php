@@ -39,10 +39,8 @@ Route::group([
     Route::group([
         'middleware' => 'auth:api'
     ], function ($router) {
-        Route::apiResources([
-            'authors' => ApiAuthorController::class,
-            'books' => ApiBookController::class
-        ]);
+        Route::apiResource('authors', ApiAuthorController::class, [ 'except'=>['update','destroy'] ]);
+        Route::apiResource('books', ApiBookController::class, [ 'except'=>['destroy'] ]);
     });
 
 });

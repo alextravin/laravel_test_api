@@ -48,12 +48,6 @@ class ApiAuthorController extends Controller
             ->setStatusCode(self::HTTP_STATUS_CREATED);
     }
 
-    public function update(Request $request)
-    {
-        //@todo убрать отсюда и из роутов
-    }
-
-
     public function show(string $id): JsonResource
     {
         if (!is_numeric($id)) {
