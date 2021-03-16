@@ -41,6 +41,9 @@ REST-like API на основе Laravel с версионированием API 
 Из инструментов статич. анализа PHP Codesniffer.  
 Недоработка RESTful в виде преднамеренного отсутствия HATEOAS (возможна доработка в будущем)
 
+В основу архитектуры старался заложить Onion Architecture 
+https://jeffreypalermo.com/tag/onion-architecture/
+
 ###  Docker
 
 Контейнеры собирались под Xubuntu
