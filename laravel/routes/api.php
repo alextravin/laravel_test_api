@@ -27,12 +27,13 @@ Route::group([
 ],function (){
 
     Route::group([
+        'as' => 'auth.',
         'prefix' => 'auth'
     ], function ($router) {
         Route::post('login', [ApiAuthController::class, 'login'])->name('login');
         Route::post('logout', [ApiAuthController::class, 'logout']);
         Route::post('refresh', [ApiAuthController::class, 'refresh']);
-        Route::post('me', [ApiAuthController::class, 'me']);
+        Route::post('me', [ApiAuthController::class, 'me'])->name('me');
     });
 
     Route::group([

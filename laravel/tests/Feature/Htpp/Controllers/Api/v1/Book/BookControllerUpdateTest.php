@@ -46,19 +46,18 @@ class BookControllerUpdateTest extends TestCase
 
     /**
      * @group http
-     * @group update
+     * @group update5
      * */
     public function testRightDataPassed()
     {
         $item = BooksGenerator::generateEmptyBook();
 
-        Author::factory(4)->create();
+
+        $authors = Author::factory(4)->create();
 
         $data = [
             'title' => 'Lord of wings',
-            'authors_id' => [
-                1,2,3,4
-            ]
+            'authors_id' => $authors->pluck('id')->toArray()
         ];
         $response = $this
             ->actingAs(UsersGenerator::generateUser())
