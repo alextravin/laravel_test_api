@@ -1,6 +1,5 @@
 <?php
 
-
 namespace App\Http\Resources\Book;
 
 use App\Http\Resources\Author\AuthorRelationResource;
@@ -11,7 +10,7 @@ class BookFullResource extends BaseResource
     /**
      * Преобразование ресурса в массив.
      *
-     * @param  \Illuminate\Http\Request
+     * @param \Illuminate\Http\Request
      *
      * @return array
      */

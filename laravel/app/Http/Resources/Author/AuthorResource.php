@@ -1,6 +1,5 @@
 <?php
 
-
 namespace App\Http\Resources\Author;
 
 use App\Http\Resources\BaseResource;
@@ -11,7 +10,7 @@ class AuthorResource extends BaseResource
     /**
      * Преобразование ресурса в массив.
      *
-     * @param  \Illuminate\Http\Request
+     * @param \Illuminate\Http\Request
      *
      * @return array
      */

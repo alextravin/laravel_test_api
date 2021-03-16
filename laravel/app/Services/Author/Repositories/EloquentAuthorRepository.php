@@ -1,8 +1,6 @@
 <?php
 
-
 namespace App\Services\Author\Repositories;
-
 
 use App\Models\Author;
 use App\Services\Author\DTO\DTOInterface;
@@ -36,5 +34,4 @@ class EloquentAuthorRepository implements AuthorRepositoryInterface
         $data = $dto->toArray();
         return Author::create($data);
     }
-
 }

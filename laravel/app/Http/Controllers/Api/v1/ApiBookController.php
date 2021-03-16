@@ -35,9 +35,9 @@ class ApiBookController extends Controller
         $item = $this->bookService->createBookFromArray($request->all());
 
         $message = [
-            'message'=>[
-                'title'=> trans('api.successTitle'),
-                'text'=> trans('api.successText') ]
+            'message' => [
+                'title' => trans('api.successTitle'),
+                'text' => trans('api.successText') ]
         ];
 
         return (new BookFullResource($item))

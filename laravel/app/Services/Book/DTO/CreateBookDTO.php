@@ -1,15 +1,15 @@
 <?php
 
-
 namespace App\Services\Book\DTO;
-
 
 class CreateBookDTO implements DTOInterface
 {
     private string $title;
     private array $authors_id;
 
-    /** @var \App\Models\Author[] */
+    /**
+     * @var \App\Models\Author[]
+     */
     private array $authors;
 
 
@@ -17,8 +17,7 @@ class CreateBookDTO implements DTOInterface
         string $title,
         array $authors_id,
         array $authors
-    )
-    {
+    ) {
         $this->title = $title;
         $this->authors_id = $authors_id;
         $this->authors = $authors;
@@ -46,5 +45,4 @@ class CreateBookDTO implements DTOInterface
     {
         $this->authors = $authors;
     }
-
 }

@@ -1,8 +1,6 @@
 <?php
 
-
 namespace App\Services\Book;
-
 
 use App\Models\Book;
 use App\Services\Author\AuthorService;
@@ -27,8 +25,7 @@ class BookService
         CreateBookHandler $createBookHandler,
         AuthorService $authorService,
         UpdateBookHandler $updateBookHandler
-    )
-    {
+    ) {
         $this->bookRepository = $bookRepository;
         $this->createBookHandler = $createBookHandler;
         $this->authorService = $authorService;
@@ -68,13 +65,12 @@ class BookService
     {
         $data = $dto->toArray();
         $relations = [];
-        foreach ( Arr::get($data, 'authors_id', []) as $index => $id) {
+        foreach (Arr::get($data, 'authors_id', []) as $index => $id) {
             $relationItem = $this->authorService->find($id);
-            if ( $relationItem !== null) {
+            if ($relationItem !== null) {
                 $relations[] = $relationItem;
             }
         }
         $dto->setAuthors($relations);
     }
-
 }

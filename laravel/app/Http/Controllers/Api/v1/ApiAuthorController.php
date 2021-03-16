@@ -40,9 +40,9 @@ class ApiAuthorController extends Controller
         //@todo Limit books items in Response
 
         $message = [
-            'message'=>[
-                'title'=> trans('api.successTitle'),
-                'text'=> trans('api.successText') ]
+            'message' => [
+                'title' => trans('api.successTitle'),
+                'text' => trans('api.successText') ]
         ];
 
         return (new AuthorFullResource($item))
@@ -64,7 +64,7 @@ class ApiAuthorController extends Controller
     public function show(string $id): JsonResource
     {
         if (!is_numeric($id)) {
-           abort(400, 'Id have to be numeric');
+            abort(400, 'Id have to be numeric');
         }
 
         $item = $this->authorService->find($id);
@@ -75,5 +75,4 @@ class ApiAuthorController extends Controller
         AuthorFullResource::withoutWrapping();
         return new AuthorFullResource($item);
     }
-
 }

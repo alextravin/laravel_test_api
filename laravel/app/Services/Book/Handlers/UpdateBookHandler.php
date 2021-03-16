@@ -1,8 +1,6 @@
 <?php
 
-
 namespace App\Services\Book\Handlers;
-
 
 use App\Models\Book;
 use App\Services\Book\DTO\UpdateBookDTO;
@@ -23,5 +21,4 @@ class UpdateBookHandler
         $this->repository->saveAuthors($item, $dto);
         return $item;
     }
-
 }

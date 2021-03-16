@@ -1,6 +1,5 @@
 <?php
 
-
 namespace App\Http\Controllers\Api\v1;
 
 use Illuminate\Support\Facades\Auth;
@@ -74,10 +73,12 @@ class ApiAuthController extends Controller
      */
     protected function respondWithToken($token)
     {
-        return response()->json([
+        return response()->json(
+            [
             'access_token' => $token,
             'token_type' => 'bearer',
             'expires_in' => auth()->factory()->getTTL() * 60
-        ]);
+            ]
+        );
     }
 }

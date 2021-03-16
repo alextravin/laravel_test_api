@@ -1,8 +1,6 @@
 <?php
 
-
 namespace App\Services\Author\DTO;
-
 
 interface DTOInterface
 {

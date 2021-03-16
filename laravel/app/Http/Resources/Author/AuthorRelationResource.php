@@ -1,6 +1,5 @@
 <?php
 
-
 namespace App\Http\Resources\Author;
 
 use App\Http\Resources\BaseResource;

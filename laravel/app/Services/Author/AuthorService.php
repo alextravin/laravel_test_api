@@ -1,8 +1,6 @@
 <?php
 
-
 namespace App\Services\Author;
-
 
 use App\Models\Author;
 use App\Services\Author\DTO\CreateAuthorDTO;
@@ -18,8 +16,7 @@ class AuthorService
     public function __construct(
         EloquentAuthorRepository $authorRepository,
         CreateAuthorHandler $createAuthorHandler
-    )
-    {
+    ) {
         $this->authorRepository = $authorRepository;
         $this->createAuthorHandler = $createAuthorHandler;
     }

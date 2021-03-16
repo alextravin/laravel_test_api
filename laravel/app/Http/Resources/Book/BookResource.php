@@ -1,8 +1,6 @@
 <?php
 
-
 namespace App\Http\Resources\Book;
-
 
 use App\Http\Resources\BaseResource;
 

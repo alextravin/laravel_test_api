@@ -1,8 +1,6 @@
 <?php
 
-
 namespace App\Services\Author\Handlers;
-
 
 use App\Models\Author;
 use App\Services\Author\DTO\CreateAuthorDTO;
@@ -21,5 +19,4 @@ class CreateAuthorHandler
     {
         return $this->repository->createFromDTO($dto);
     }
-
 }

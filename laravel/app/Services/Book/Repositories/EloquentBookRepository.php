@@ -1,6 +1,5 @@
 <?php
 
-
 namespace App\Services\Book\Repositories;
 
 use App\Models\Book;
@@ -49,5 +48,4 @@ class EloquentBookRepository implements BookRepositoryInterface
         $item->authors()->saveMany(Arr::get($data, 'authors', []));
         return $this;
     }
-
 }

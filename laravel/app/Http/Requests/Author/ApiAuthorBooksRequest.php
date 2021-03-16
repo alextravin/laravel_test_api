@@ -1,8 +1,6 @@
 <?php
 
-
 namespace App\Http\Requests\Author;
-
 
 use App\Http\Requests\ApiIndexRequest;
 

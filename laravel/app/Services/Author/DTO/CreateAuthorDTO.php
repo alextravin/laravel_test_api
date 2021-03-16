@@ -1,8 +1,6 @@
 <?php
 
-
 namespace App\Services\Author\DTO;
-
 
 class CreateAuthorDTO implements DTOInterface
 {
@@ -11,8 +9,7 @@ class CreateAuthorDTO implements DTOInterface
 
     public function __construct(
         string $name
-    )
-    {
+    ) {
         $this->name = $name;
     }
 
@@ -29,5 +26,4 @@ class CreateAuthorDTO implements DTOInterface
             'name' => $this->name,
         ];
     }
-
 }
