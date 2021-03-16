@@ -1,0 +1,374 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "description": "This is a sample server Petstore server.  You can find out more about     Swagger at [http://swagger.io](http://swagger.io) or on [irc.freenode.net, #swagger](http://swagger.io/irc/).      For this sample, you can use the api key `special-key` to test the authorization     filters.",
+    "version": "1.0.0",
+    "title": "My Sample API",
+    "termsOfService": "http://swagger.io/terms/",
+    "contact": {
+      "email": "apiteam@swagger.io"
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  },
+  "tags": [
+    {
+      "name": "auth",
+      "description": "JWT Authorization",
+      "externalDocs": {
+        "description": "Find out more",
+        "url": "http://mysite.local"
+      }
+    },
+    {
+      "name": "authors",
+      "description": "Operations with authors",
+      "externalDocs": {
+        "description": "Find out more",
+        "url": "http://mysite.local"
+      }
+    },
+    {
+      "name": "books",
+      "description": "Operations with books",
+      "externalDocs": {
+        "description": "Find out more",
+        "url": "http://mysite.local"
+      }
+    }
+  ],
+  "paths": {
+    "/auth/login": {
+      "post": {
+        "tags": [
+          "auth"
+        ],
+        "summary": "Authorization using email and password",
+        "description": "",
+        "operationId": "authorise",
+        "parameters": [
+          {
+            "name": "email",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "password",
+            "in": "query",
+            "description": "Password",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Well done"
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          }
+        }
+      }
+    },
+    "/books": {
+      "get": {
+        "tags": [
+          "books"
+        ],
+        "summary": "List all books",
+        "description": "",
+        "operationId": "listBooks",
+        "responses": {
+          "200": {
+            "description": "Well done"
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "books"
+        ],
+        "summary": "Add a new book to the storage",
+        "description": "",
+        "operationId": "addBook",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "body",
+            "description": "Pet object that needs to be added to the store",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/Book"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Well done"
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          }
+        }
+      }
+    },
+    "/books/{book}": {
+      "get": {
+        "tags": [
+          "books"
+        ],
+        "summary": "Get an existing book",
+        "description": "",
+        "operationId": "showBook",
+        "parameters": [
+          {
+            "name": "book",
+            "in": "path",
+            "description": "Book id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Well done"
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "books"
+        ],
+        "summary": "Update an existing book",
+        "description": "",
+        "operationId": "updateBook",
+        "parameters": [
+          {
+            "name": "book",
+            "in": "path",
+            "description": "Book id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "body",
+            "description": "Book object that needs to be added to the store",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/Book"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Well done"
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          },
+          "422": {
+            "description": "Wrong data has been passed"
+          }
+        }
+      }
+    },
+    "/authors": {
+      "get": {
+        "tags": [
+          "authors"
+        ],
+        "summary": "List all existing authors",
+        "description": "",
+        "operationId": "listAuthors",
+        "responses": {
+          "200": {
+            "description": "Well done"
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "authors"
+        ],
+        "summary": "Add a new author to the storage",
+        "description": "",
+        "operationId": "addAuthor",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "body",
+            "description": "Author object that needs to be added to the storage",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/Author"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Well done"
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          }
+        }
+      }
+    },
+    "/authors/{author}": {
+      "get": {
+        "tags": [
+          "authors"
+        ],
+        "summary": "Get an existing author",
+        "description": "",
+        "operationId": "showAuthor",
+        "parameters": [
+          {
+            "name": "author",
+            "in": "path",
+            "description": "Author id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Well done"
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          }
+        }
+      }
+    },
+    "/authors/{author}/books": {
+      "get": {
+        "tags": [
+          "authors"
+        ],
+        "summary": "List books of given author (Will be available soon!)",
+        "description": "",
+        "operationId": "listBooksByAuthor",
+        "parameters": [
+          {
+            "name": "author",
+            "in": "path",
+            "description": "Author id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Well done"
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "responses": {
+      "UnauthorizedError": {
+        "description": "Access token is missing or invalid"
+      }
+    },
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    },
+    "schemas": {
+      "Author": {
+        "type": "object",
+        "required": [
+          "title"
+        ],
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "name": {
+            "type": "string",
+            "example": "John Doe"
+          },
+          "books_ids": {
+            "type": "array",
+            "description": "List of books ids",
+            "items": {
+              "type": "integer"
+            }
+          }
+        },
+        "xml": {
+          "name": "Book"
+        }
+      },
+      "Book": {
+        "type": "object",
+        "required": [
+          "title"
+        ],
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "title": {
+            "type": "string",
+            "example": "The Hobbit: resurrection"
+          },
+          "authors_ids": {
+            "type": "array",
+            "description": "List of authors ids",
+            "items": {
+              "type": "integer"
+            }
+          }
+        },
+        "xml": {
+          "name": "Book"
+        }
+      }
+    }
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ],
+  "externalDocs": {
+    "description": "Find out more about OpenAPI",
+    "url": "https://swagger.io/specification/"
+  }
+}

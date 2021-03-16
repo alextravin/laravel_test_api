@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers\Api\v1;
 
+use App\Http\Requests\Author\ApiAuthorBooksRequest;
 use App\Http\Requests\Author\ApiAuthorIndexRequest;
 use App\Http\Requests\Author\ApiAuthorStoreRequest;
 use App\Http\Resources\Author\AuthorCollection;
 use App\Http\Resources\Author\AuthorFullResource;
+use App\Http\Resources\Book\BookCollection;
 use App\Services\Author\AuthorService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -35,6 +37,7 @@ class ApiAuthorController extends Controller
     public function store(ApiAuthorStoreRequest $request): JsonResponse
     {
         $item = $this->authorService->createAuthorFromArray($request->all());
+        //@todo Limit books items in Response
 
         $message = [
             'message'=>[
@@ -46,6 +49,16 @@ class ApiAuthorController extends Controller
             ->additional($message)
             ->response()
             ->setStatusCode(self::HTTP_STATUS_CREATED);
+    }
+
+    public function books(string $id, ApiAuthorBooksRequest $request): JsonResource
+    {
+        $limit = (int) $request->get('limit', static::DEFAULT_LIMIT_ITEMS_PER_PAGE);
+        $offset = (int) $request->get('offset', 0);
+
+
+        $books = $this->authorService->getAll($limit, $offset);
+        return new BookCollection($books);
     }
 
     public function show(string $id): JsonResource

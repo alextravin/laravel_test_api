@@ -17,9 +17,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
-
-//@todo Указать в документацию что надо отправлять заголовок Accept: application/json
 Route::group([
     'as' => 'api.',
     'prefix' => '/v1',
