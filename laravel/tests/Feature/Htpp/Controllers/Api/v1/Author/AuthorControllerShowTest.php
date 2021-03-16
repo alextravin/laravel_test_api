@@ -1,25 +1,27 @@
 <?php
 
 
-namespace Tests\Feature\Htpp\Controllers\Api\v1\Book;
+namespace Tests\Feature\Htpp\Controllers\Api\v1\Author;
 
+use App\Models\Author;
 use App\Models\Book;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Tests\Generators\BooksGenerator;
+use Tests\Generators\AuthorsGenerator;
 use Tests\Generators\UsersGenerator;
 use Tests\TestCase;
 
-class BookControllerShowTest extends TestCase
+class AuthorControllerShowTest extends TestCase
 {
     use RefreshDatabase;
 
     /**
      * @group http
-     * @group show
+     * @group show5
+     * @group authorShow
      * */
     public function testNotAllowed()
     {
-        $item = BooksGenerator::generateEmptyBook();
+        $item = AuthorsGenerator::generateEmptyAuthor();
 
         $response = $this->getJson($this->getRoute($item));
         $response
@@ -28,23 +30,24 @@ class BookControllerShowTest extends TestCase
 
     /**
      * @group http
-     * @group show
+     * @group authorShow
      * */
     public function testAllowed()
     {
-        $item = BooksGenerator::generateEmptyBook();
+        $item = AuthorsGenerator::generateEmptyAuthor();
 
         $response = $this
             ->actingAs(UsersGenerator::generateUser())
             ->getJson($this->getRoute($item));
+
         $response
             ->assertStatus(200)
-            ->assertJsonStructure(['id','authors','title'])
+            ->assertJsonStructure(['id','books','name'])
         ;
     }
 
-    protected function getRoute(Book $item):string
+    protected function getRoute(Author $item):string
     {
-        return route('api.books.show',['locale' => 'en','book' => $item]);
+        return route('api.authors.show',['locale' => 'en','author' => $item]);
     }
 }
