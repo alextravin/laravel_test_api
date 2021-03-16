@@ -16,7 +16,7 @@ class AuthorControllerShowTest extends TestCase
 
     /**
      * @group http
-     * @group show5
+     * @group show
      * @group authorShow
      * */
     public function testNotAllowed()

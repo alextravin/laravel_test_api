@@ -46,7 +46,7 @@ class BookControllerUpdateTest extends TestCase
 
     /**
      * @group http
-     * @group update5
+     * @group update
      * */
     public function testRightDataPassed()
     {
