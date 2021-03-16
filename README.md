@@ -1,13 +1,47 @@
+### Задание:
+Создать апи для библиотеки. У книг есть название и авторы, у автора есть
+имя.
+
+### Методы:
+
+● Получить список книг
+
+● Получить одну книгу со всеми авторами
+
+● Получить список книг по конкретному автору
+
+● Добавление новой книги
+
+● Отредактировать книгу
+
+● Добавление нового автора
+
+### Технологии:
+
+● Задание должно быть выполнено на фреймворке Laravel
+
+● База данных: MySQL, MariaDB, PostgreSQL
+
+### Усложнения (не обязательно):
+
+❖ Документация OpenApi
+
+❖ Тесты
+
+❖ Аутентификация через JWT токены
+
+❖ Версионность
+
+❖ Использовать Docker, сервис должен запускаться с помощью docker-compose up
+
+# Решение
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+REST-like API на основе Laravel с версионированием API через URI, версионированием репозитория согласно спецификации SemVer, авторизацией по JWT токенам, тестами, документацией OpenAPI v3.0.0 и контейнеризацией в Docker.
+Из инструментов статич. анализа PHP Codesniffer.  
+Недоработка RESTful в виде преднамеренного отсутствия HATEOAS (возможна доработка в будущем)
 
-## Docker
+###  Docker
 
 Контейнеры собирались под Xubuntu
 
